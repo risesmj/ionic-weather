@@ -9,6 +9,8 @@ import { WeatherService } from '../services/weather.service';
 })
 export class HomePage implements OnInit {
 
+  public items = [];
+
   constructor(private service: WeatherService) { }
 
   ngOnInit() {
@@ -22,7 +24,8 @@ export class HomePage implements OnInit {
       .list(-26.918958059880193, -48.65417161346648))
       .subscribe((value: any) => {
         console.log(value);
-        let res = value.properties.timeseries.map((e: any) => TimeSerieModel.fromMap(e.data));
+        let res = value.properties.timeseries.map((e: any) => TimeSerieModel.fromMap(e));
+        this.items = res;
         console.log(res);
       });
 

@@ -14,10 +14,10 @@ export class TimeSerieModel {
 
     static fromMap(m: any): TimeSerieModel {
         return new TimeSerieModel(
-            InstantModel.fromMap(m.instant.details),
-            InfoNextHourModel.fromMap(m.next_1_hours),
-            InfoNextHourModel.fromMap(m.next_6_hours),
-            InfoNextHourModel.fromMap(m.next_12_hours),
+            InstantModel.fromMap(m.data.instant.details),
+            InfoNextHourModel.fromMap(m.data.next_1_hours),
+            InfoNextHourModel.fromMap(m.data.next_6_hours),
+            InfoNextHourModel.fromMap(m.data.next_12_hours),
             m.time
         );
     }
